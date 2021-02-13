@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $blogs = auth()->user()->blogs()->orderBy('updated_at', 'desc')->get();
+        $blogs = auth()->user()->blogs()->orderBy('created_at', 'desc')->get();
 
         foreach ($blogs as &$blog) {
             if (is_null($blog->image_url)) {

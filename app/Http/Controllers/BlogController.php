@@ -21,7 +21,7 @@ class BlogController extends Controller
 
     public function index () {
         $ip = \request()->ip();
-        $blogs = \App\Models\Blog::orderBy('updated_at', 'desc')->get();
+        $blogs = \App\Models\Blog::orderBy('created_at', 'desc')->get();
         foreach ($blogs as &$blog) {
             if (is_null($blog->image_url)) {
                 $blog->image_url = 'assets/img/no_image.png';

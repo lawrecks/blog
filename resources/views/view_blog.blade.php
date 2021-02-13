@@ -15,13 +15,23 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ $blog->title }}
-                    <a role="button"
-                            class="btn btn-sm btn-info text-right"
-                            style="float: right"
-                            id="back-button"
-                            href="{{ url('/home') }}">
-                        Back
-                    </a>
+                    @guest
+                        <a role="button"
+                           class="btn btn-sm btn-info text-right"
+                           style="float: right"
+                           id="back-button"
+                           href="{{ url('/') }}">
+                            Back
+                        </a>
+                    @else
+                        <a role="button"
+                                class="btn btn-sm btn-info text-right"
+                                style="float: right"
+                                id="back-button"
+                                href="{{ url('/home') }}">
+                            Back
+                        </a>
+                    @endguest
                 </div>
                 @include('partials.message')
 

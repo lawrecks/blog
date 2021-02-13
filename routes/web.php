@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\BlogController::class, 'index']);
+Route::get('/view-blog/{id}', [\App\Http\Controllers\BlogController::class, 'view'])->name('view.blog');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home/create-blog', [\App\Http\Controllers\BlogController::class, 'create'])->name('create.blog');

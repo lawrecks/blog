@@ -25,10 +25,10 @@
                                              alt="Card image cap" id="card-img-top">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $blog->title }}</h5> <small class="f-12">by {{ $blog->user->name }}</small>
-                                            <p class="card-text">{{ $blog->description }}</p>
+                                            <p class="card-text">{{ substr($blog->description, 0, 49) }}{{strlen($blog->description) > 49 ? '...' : '' }}</p>
                                         </div>
                                         <div class="card-footer">
-                                            <small class="text-muted">Last updated {{ \Carbon\Carbon::parse($blog->updated_at)->diffForHumans() }}</small>
+                                            <small class="text-muted">Posted {{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</small>
                                             <small class="text-muted float-right"> Views : {{ $blog->view_count }}</small>
                                         </div>
                                     </div>

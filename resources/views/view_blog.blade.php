@@ -51,12 +51,12 @@
                                         <h5 class="card-title">{{ $blog->title }}</h5>
                                         <small class="card-text">By {{ $blog->user->name }}</small> <br>
                                         <small class="card-text">{{ $blog->description }}</small>
-                                        <p class="mt-4">
+                                        <p class="mt-4 text-justify">
                                             {{ $blog->body }}
                                         </p>
                                     </div>
                                     <div class="card-footer">
-                                        <small class="text-muted">Last updated {{ \Carbon\Carbon::parse($blog->updated_at)->diffForHumans() }}</small>
+                                        <small class="text-muted">Posted {{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</small>
                                         <br> <small class="text-muted"> Views : {{ $blog->view_count }}</small>
                                     </div>
                                 </div>

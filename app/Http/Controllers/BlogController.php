@@ -26,6 +26,7 @@ class BlogController extends Controller
             if (is_null($blog->image_url)) {
                 $blog->image_url = 'assets/img/no_image.png';
             }
+//            $blog->description = substr($blog->description, 0, 2);
         }
 
         $client = Ip::where('address', $ip)->first();

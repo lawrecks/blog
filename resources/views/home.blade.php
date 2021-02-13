@@ -68,10 +68,10 @@
 
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $blog->title }}</h5>
-                                            <p class="card-text">{{ $blog->description }}</p>
+                                            <p class="card-text">{{ substr($blog->description, 0, 34) }}{{strlen($blog->description) > 34 ? '...' : '' }}</p>
                                         </div>
                                         <div class="card-footer">
-                                            <small class="text-muted">Last updated {{ \Carbon\Carbon::parse($blog->updated_at)->diffForHumans() }}</small>
+                                            <small class="text-muted">Posted {{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</small>
                                             <br> <small class="text-muted"> Views : {{ $blog->view_count }}</small>
                                         </div>
                                     </a>
